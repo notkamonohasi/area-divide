@@ -1,0 +1,13 @@
+[project]
+name = "sp"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "black>=24.10.0",
+    "ipykernel>=6.29.5",
+    "isort>=5.13.2",
+    "matplotlib>=3.9.2",
+    "mypy>=1.12.0",
+]
