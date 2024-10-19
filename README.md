@@ -6,4 +6,5 @@
 
 1. `pip install uv`
 2. `uv sync`
-3. `source run.sh`
+3. `. .venv/bin/activate`
+4. `source run.sh`
