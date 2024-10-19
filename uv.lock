@@ -837,7 +837,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "black", specifier = ">=24.10.0" },
-    { name = "imageio" },
+    { name = "imageio", specifier = ">=2.36.0" },
     { name = "ipykernel", specifier = ">=6.29.5" },
     { name = "isort", specifier = ">=5.13.2" },
     { name = "matplotlib", specifier = ">=3.9.2" },
