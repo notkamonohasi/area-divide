@@ -257,6 +257,19 @@ wheels = [
 ]
 
 [[package]]
+name = "imageio"
+version = "2.36.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "numpy" },
+    { name = "pillow" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/4f/34/a714fd354f5f7fe650477072d4da21446849b20c02045dcf7ac827495121/imageio-2.36.0.tar.gz", hash = "sha256:1c8f294db862c256e9562354d65aa54725b8dafed7f10f02bb3ec20ec1678850", size = 389492 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/4e/e7/26045404a30c8a200e960fb54fbaf4b73d12e58cd28e03b306b084253f4f/imageio-2.36.0-py3-none-any.whl", hash = "sha256:471f1eda55618ee44a3c9960911c35e647d9284c68f077e868df633398f137f0", size = 315414 },
+]
+
+[[package]]
 name = "ipykernel"
 version = "6.29.5"
 source = { registry = "https://pypi.org/simple" }
@@ -814,6 +827,7 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "black" },
+    { name = "imageio" },
     { name = "ipykernel" },
     { name = "isort" },
     { name = "matplotlib" },
@@ -823,7 +837,8 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "black", specifier = ">=24.10.0" },
-    { name = "ipykernel" },
+    { name = "imageio" },
+    { name = "ipykernel", specifier = ">=6.29.5" },
     { name = "isort", specifier = ">=5.13.2" },
     { name = "matplotlib", specifier = ">=3.9.2" },
     { name = "mypy", specifier = ">=1.12.0" },

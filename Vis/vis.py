@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import List, Tuple
+from typing import List, Optional, Tuple
 
 import matplotlib.patches as patches
 import matplotlib.pyplot as plt
@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 def draw(
     obstacles: List[tuple[float, float]],
     coordinates: List[Tuple[Tuple[float, float], Tuple[float, float]]],
-    path: List[tuple[float, float]],
+    path: Optional[List[tuple[float, float]]],
     save_path: Path,
 ) -> None:
     """
@@ -38,12 +38,14 @@ def draw(
         )
         ax.add_patch(square)
 
-    path_y: list[float] = []
-    path_x: list[float] = []
-    for p in path:
-        path_y.append(p[0])
-        path_x.append(p[1])
-    plt.plot(path_y, path_x)
+    if path is not None:
+        path_y: list[float] = []
+        path_x: list[float] = []
+        for p in path:
+            path_y.append(p[0])
+            path_x.append(p[1])
+        plt.plot(path_y, path_x, linewidth=3.0, color="red")
+        # plt.scatter(path_y, path_x)
 
     # 軸の範囲を設定
     all_x = [

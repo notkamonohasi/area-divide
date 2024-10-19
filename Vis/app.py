@@ -1,7 +1,8 @@
 from pathlib import Path
+from typing import Optional
 
-from Vis.const import ROOT_DIR
-from Vis.vis import draw
+from const import ROOT_DIR
+from vis import draw
 
 if __name__ == "__main__":
     sim_dir = ROOT_DIR.parent.joinpath("Sim")
@@ -10,10 +11,11 @@ if __name__ == "__main__":
 
     obstacles: list[tuple[float, float]] = []
     coordinates: list[tuple[tuple[float, float], tuple[float, float]]] = []
-    path: list[tuple[float, float]] = []
+    path: Optional[list[tuple[float, float]]]
 
     with open(in_path, "r") as f:
-        _, n, _ = map(float, f.readline().split())
+        _, n, _, _ = map(float, f.readline().split())
+        f.readline()
         for _ in range(int(n)):
             y, x = map(float, f.readline().split())
             obstacles.append((y, x))
@@ -23,9 +25,15 @@ if __name__ == "__main__":
         for _ in range(n):
             y, x, dy, dx = map(float, f.readline().split())
             coordinates.append(((y, x), (dy, dx)))
-        m = int(f.readline())
-        for _ in range(m):
-            y, x = map(float, f.readline().split())
-            path.append((y, x))
+
+        # Falseなら、ルートの可視化を行わない
+        if True:
+            path = []
+            m = int(f.readline())
+            for _ in range(m):
+                y, x = map(float, f.readline().split())
+                path.append((y, x))
+        else:
+            path = None
 
     draw(obstacles, coordinates, path, Path("./hoge.png"))
