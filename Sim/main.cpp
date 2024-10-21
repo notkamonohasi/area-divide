@@ -107,6 +107,7 @@ struct Dijkstra {
     ld get_dist(ll t) { return dist[t]; }
 };
 
+// ChatGPTを丸パクり & no-verify
 class KDTree {
    public:
     KDTree(const std::vector<Place>& places) { root = buildTree(places, 0); }
